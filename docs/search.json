@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "topr_manual",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nhttps://totajuliusd.github.io/topr_manual/\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "about.html",
@@ -12,5 +12,12 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "manhattan.html",
+    "href": "manhattan.html",
+    "title": "manhattan",
+    "section": "",
+    "text": "library(topr)\n\n\nmanhattan(CD_UKBB)\n\n\n\n\n\n\n\n\nAnnotate the top association peaks with the nearest gene\n\nmanhattan(CD_UKBB, annotate=5e-09)\n\n\n\n\n\n\n\n\nExtract the lead snps and display them in red on the manhattan plot\n\nlead_snps &lt;- get_lead_snps(CD_UKBB, thresh = 5e-09, region_size = 10000000)\n\n\nmanhattan(list(CD_UKBB, lead_snps), annotate=c(5e-100, 5e-09), color=c(\"darkblue\",\"red\"), legend_labels=c(\"CD UKBB\", \"Lead snp's\"), verbose=F) \n\n\n\n\n\n\n\n\nChange the annotation to vertical and italic. Reduce the size of all text by setting the scale argument to 0.9. Move the legend labels to the top.\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          size=c(1,1.7),\n          shape=c(19,8), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), \n          label_size = 3.7, \n          angle = 90, \n          label_fontface = \"italic\", \n          nudge_y = 5, \n          scale=0.9, \n          legend_position = \"top\", \n          ymax=32,  \n          even_no_chr_lightness = c(0.8,0.5),\n          verbose=F)"
   }
 ]

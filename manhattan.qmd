@@ -1,0 +1,48 @@
+---
+title: "manhattan"
+---
+
+```{r}
+library(topr)
+```
+
+
+```{r, fig.width=9, fig.height=3.5}
+manhattan(CD_UKBB)
+```
+
+Annotate the top association peaks with the nearest gene
+
+```{r, fig.width=9, fig.height=3.5}
+manhattan(CD_UKBB, annotate=5e-09)
+```
+
+Extract the lead snps and display them in red on the manhattan plot
+
+```{r, fig.width=9, fig.height=4, warning=F, message=F}
+lead_snps <- get_lead_snps(CD_UKBB, thresh = 5e-09, region_size = 10000000)
+```
+
+```{r, fig.width=9, fig.height=4, warning=F, message=F}
+manhattan(list(CD_UKBB, lead_snps), annotate=c(5e-100, 5e-09), color=c("darkblue","red"), legend_labels=c("CD UKBB", "Lead snp's"), verbose=F) 
+```
+
+Change the annotation to vertical and italic. Reduce the size of all text by setting the <code>scale</code> argument to 0.9. Move the legend labels to the top. 
+
+```{r, fig.width=9, fig.height=4, warning=F, message=F}
+manhattan(list(CD_UKBB, lead_snps), 
+          annotate=c(5e-100, 5e-09), 
+          color=c("darkblue","red"), 
+          size=c(1,1.7),
+          shape=c(19,8), 
+          legend_labels=c("CD UKBB", "Lead snp's"), 
+          label_size = 3.7, 
+          angle = 90, 
+          label_fontface = "italic", 
+          nudge_y = 5, 
+          scale=0.9, 
+          legend_position = "top", 
+          ymax=32,  
+          even_no_chr_lightness = c(0.8,0.5),
+          verbose=F) 
+```
