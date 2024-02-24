@@ -195,7 +195,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lead_snps <span class="ot">&lt;-</span> <span class="fu">get_lead_snps</span>(CD_UKBB, <span class="at">thresh =</span> <span class="fl">5e-09</span>, <span class="at">region_size =</span> <span class="dv">10000000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, lead_snps), <span class="at">annotate=</span><span class="fu">c</span>(<span class="fl">5e-100</span>, <span class="fl">5e-09</span>), <span class="at">color=</span><span class="fu">c</span>(<span class="st">"darkblue"</span>,<span class="st">"red"</span>), <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"Lead snp's"</span>), <span class="at">verbose=</span>F) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, lead_snps), </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">annotate=</span><span class="fu">c</span>(<span class="fl">5e-100</span>, <span class="fl">5e-09</span>), </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">color=</span><span class="fu">c</span>(<span class="st">"darkblue"</span>,<span class="st">"red"</span>), </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"Lead snp's"</span>), <span class="at">verbose=</span>F) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -205,13 +208,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Change the annotation to vertical and italic. Reduce the size of all text by setting the <code>scale</code> argument to 0.9. Move the legend labels to the top.</p>
+<details>
+<summary>
+<i>Click here to see the command </i>
+</summary>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, lead_snps), </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">annotate=</span><span class="fu">c</span>(<span class="fl">5e-100</span>, <span class="fl">5e-09</span>), </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">color=</span><span class="fu">c</span>(<span class="st">"darkblue"</span>,<span class="st">"red"</span>), </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">size=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">1.7</span>),</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">shape=</span><span class="fu">c</span>(<span class="dv">19</span>,<span class="dv">8</span>), </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"Lead snp's"</span>), </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"Lead snp's"</span>), </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">size=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">1.7</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">shape=</span><span class="fu">c</span>(<span class="dv">19</span>,<span class="dv">8</span>), </span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">label_size =</span> <span class="fl">3.7</span>, </span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">angle =</span> <span class="dv">90</span>, </span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">label_fontface =</span> <span class="st">"italic"</span>, </span>
@@ -229,6 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</details>
 
 
 
