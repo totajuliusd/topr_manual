@@ -237,6 +237,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </details>
+<details>
+<summary>
+<i>Click here to see the command </i>
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>top_snps_finngen <span class="ot">&lt;-</span> <span class="fu">get_lead_snps</span>(CD_FINNGEN)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, lead_snps, top_snps_finngen),  <span class="at">color=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"darkred"</span>,<span class="st">"gray40"</span>),<span class="at">label_fontface =</span> <span class="fu">c</span>(<span class="st">"italic"</span>,<span class="st">"bold"</span>,<span class="st">"plain"</span>), <span class="at">angle=</span><span class="fu">c</span>(<span class="dv">90</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels =</span> <span class="fu">c</span>(<span class="st">"CD"</span>,<span class="st">"top snps UKB"</span>, <span class="st">"top snps Finngen"</span>),<span class="at">annotate=</span><span class="fl">1e-20</span>, <span class="at">build=</span>enshuman<span class="sc">::</span>hg38)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manhattan_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</details>
 
 
 
