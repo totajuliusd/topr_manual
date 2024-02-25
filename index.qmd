@@ -1,7 +1,53 @@
 ---
-title: "topr_manual"
+title: "*topr* plotting functions"
 ---
 
+Examples of basic usage. For more examples on how to use each plotting function select the corresponding function name from the top navigation bar.
+
+```{r}
+library(topr)
+```
+
+## Manhattan
+
+### Single GWAS
+```{r, fig.width=10, fig.height=4}
+manhattan(CD_UKBB, annotate=5e-9)
+```
+
+### Multi GWAS
+```{r, fig.width=9, fig.height=4.5}
+manhattan(list(CD_UKBB, CD_FINNGEN), annotate=5e-9)
+```
+
+## regionplot
+
+### Single GWAS
+```{r, fig.width=9.5, fig.height=5.7}
+regionplot(CD_UKBB, gene="IL23R", annotate=5e-9)
+```
+
+### Multi GWAS
+```{r, fig.width=9.5, fig.height=5.7}
+regionplot(list(CD_UKBB, CD_FINNGEN), gene="IL23R", annotate=5e-9)
+```
+
+## locuszoom
+```{r, fig.width=9.5, fig.height=5}
+locuszoom(R2_CD_UKBB)
+```
+
+## effectplot
+
+```{r, fig.width=5, fig.height=4.5}
+effectplot(list(CD_UKBB, CD_FINNGEN), annotate=5e-4)
+```
+
+```{r, fig.width=5, fig.height=4.5}
+ effectplot(list(CD_FINNGEN, CD_UKBB), color = get_topr_colors()[2], annotate=5e-4)
+```
+
+## ggforesttopr
 
 See https://totajuliusd.github.io/topr_manual/
 

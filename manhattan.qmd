@@ -2,23 +2,25 @@
 title: "manhattan"
 ---
 
+## Single GWAS
 ```{r}
 library(topr)
 ```
 
-```{r, fig.width=9, fig.height=3.5}
+
+```{r, fig.width=10, fig.height=4}
 manhattan(CD_UKBB)
 ```
 
 Annotate the top association peaks with the nearest gene
 
-```{r, fig.width=9, fig.height=3.5}
+```{r, fig.width=10, fig.height=4}
 manhattan(CD_UKBB, annotate=5e-09)
 ```
 
 Extract the lead snps and display them in red on the manhattan plot
 
-```{r, fig.width=9, fig.height=4, warning=F, message=F}
+```{r, fig.width=10, fig.height=4.5, warning=F, message=F}
 lead_snps <- get_lead_snps(CD_UKBB, thresh = 5e-09, region_size = 10000000)
 ```
 
@@ -83,3 +85,5 @@ mh <- manhattan(list(CD_UKBB, lead_snps, top_snps_finngen),  color=c("red","dark
 ```
 
 </details>
+
+## Multi GWAS

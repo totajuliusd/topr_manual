@@ -3,12 +3,17 @@ project:
   output-dir: docs
 
 website:
-  title: "topr_manual"
+  title: "topr examples"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - manhattan.qmd
+      - regionplot.qmd
+      - locuszoom.qmd
+      - effectplot.qmd
+  sidebar:
+    search: true
 
 format:
   html:

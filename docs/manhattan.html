@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>topr_manual - manhattan</title>
+<title>topr examples - manhattan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">topr_manual</span>
+    <span class="navbar-title">topr examples</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -130,19 +130,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="./manhattan.html" aria-current="page"> 
 <span class="menu-text">manhattan</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./regionplot.html"> 
+<span class="menu-text">regionplot</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./locuszoom.html"> 
+<span class="menu-text">locuszoom</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./effectplot.html"> 
+<span class="menu-text">effectplot</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">manhattan</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#single-gwas" id="toc-single-gwas" class="nav-link active" data-scroll-target="#single-gwas">Single GWAS</a></li>
+  <li><a href="#multi-gwas" id="toc-multi-gwas" class="nav-link" data-scroll-target="#multi-gwas">Multi GWAS</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -166,6 +206,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="single-gwas" class="level2">
+<h2 class="anchored" data-anchor-id="single-gwas">Single GWAS</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -174,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="manhattan_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="864"></p>
+<p><img src="manhattan_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -185,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="manhattan_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="864"></p>
+<p><img src="manhattan_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -241,21 +283,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <summary>
 <i>Click here to see the command </i>
 </summary>
+</details>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>top_snps_finngen <span class="ot">&lt;-</span> <span class="fu">get_lead_snps</span>(CD_FINNGEN)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, lead_snps, top_snps_finngen),  <span class="at">color=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"darkred"</span>,<span class="st">"gray40"</span>),<span class="at">label_fontface =</span> <span class="fu">c</span>(<span class="st">"italic"</span>,<span class="st">"bold"</span>,<span class="st">"plain"</span>), <span class="at">angle=</span><span class="fu">c</span>(<span class="dv">90</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels =</span> <span class="fu">c</span>(<span class="st">"CD"</span>,<span class="st">"top snps UKB"</span>, <span class="st">"top snps Finngen"</span>),<span class="at">annotate=</span><span class="fl">1e-20</span>, <span class="at">build=</span>enshuman<span class="sc">::</span>hg38)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="manhattan_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="864"></p>
+<p><img src="manhattan_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="864"></p>
 </figure>
 </div>
 </div>
 </div>
-</details>
+<summary>
+<i>Click here to see the command </i>
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>top_snps_finngen <span class="ot">&lt;-</span> <span class="fu">get_lead_snps</span>(CD_FINNGEN)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mh <span class="ot">&lt;-</span> <span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, lead_snps, top_snps_finngen),  <span class="at">color=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"darkred"</span>,<span class="st">"gray40"</span>),<span class="at">label_fontface =</span> <span class="fu">c</span>(<span class="st">"italic"</span>,<span class="st">"bold"</span>,<span class="st">"plain"</span>), <span class="at">angle=</span><span class="fu">c</span>(<span class="dv">90</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels =</span> <span class="fu">c</span>(<span class="st">"CD"</span>,<span class="st">"top snps UKB"</span>, <span class="st">"top snps Finngen"</span>),<span class="at">annotate=</span><span class="fl">1e-20</span>, <span class="at">build=</span>enshuman<span class="sc">::</span>hg38)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</section>
+<section id="multi-gwas" class="level2">
+<h2 class="anchored" data-anchor-id="multi-gwas">Multi GWAS</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

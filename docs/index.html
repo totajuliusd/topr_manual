@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>topr_manual</title>
+<title>topr examples - topr plotting functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">topr_manual</span>
+    <span class="navbar-title">topr examples</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -130,26 +130,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./manhattan.html"> 
 <span class="menu-text">manhattan</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./regionplot.html"> 
+<span class="menu-text">regionplot</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./locuszoom.html"> 
+<span class="menu-text">locuszoom</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./effectplot.html"> 
+<span class="menu-text">effectplot</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><em>topr</em> plotting functions</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#manhattan" id="toc-manhattan" class="nav-link active" data-scroll-target="#manhattan">Manhattan</a>
+  <ul class="collapse">
+  <li><a href="#single-gwas" id="toc-single-gwas" class="nav-link" data-scroll-target="#single-gwas">Single GWAS</a></li>
+  <li><a href="#multi-gwas" id="toc-multi-gwas" class="nav-link" data-scroll-target="#multi-gwas">Multi GWAS</a></li>
+  </ul></li>
+  <li><a href="#regionplot" id="toc-regionplot" class="nav-link" data-scroll-target="#regionplot">regionplot</a>
+  <ul class="collapse">
+  <li><a href="#single-gwas-1" id="toc-single-gwas-1" class="nav-link" data-scroll-target="#single-gwas-1">Single GWAS</a></li>
+  <li><a href="#multi-gwas-1" id="toc-multi-gwas-1" class="nav-link" data-scroll-target="#multi-gwas-1">Multi GWAS</a></li>
+  </ul></li>
+  <li><a href="#locuszoom" id="toc-locuszoom" class="nav-link" data-scroll-target="#locuszoom">locuszoom</a></li>
+  <li><a href="#effectplot" id="toc-effectplot" class="nav-link" data-scroll-target="#effectplot">effectplot</a></li>
+  <li><a href="#ggforesttopr" id="toc-ggforesttopr" class="nav-link" data-scroll-target="#ggforesttopr">ggforesttopr</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">topr_manual</h1>
+<h1 class="title"><em>topr</em> plotting functions</h1>
 </div>
 
 
@@ -166,17 +217,129 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-<p>https://totajuliusd.github.io/topr_manual/</p>
+<p>Examples of basic usage. For more examples on how to use each plotting function select the corresponding function name from the top navigation bar.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="manhattan" class="level2">
+<h2 class="anchored" data-anchor-id="manhattan">Manhattan</h2>
+<section id="single-gwas" class="level3">
+<h3 class="anchored" data-anchor-id="single-gwas">Single GWAS</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(CD_UKBB, <span class="at">annotate=</span><span class="fl">5e-9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="multi-gwas" class="level3">
+<h3 class="anchored" data-anchor-id="multi-gwas">Multi GWAS</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">annotate=</span><span class="fl">5e-9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Use the legend_labels argument to change the legend labels from color names to meaningful labels! "</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="regionplot" class="level2">
+<h2 class="anchored" data-anchor-id="regionplot">regionplot</h2>
+<section id="single-gwas-1" class="level3">
+<h3 class="anchored" data-anchor-id="single-gwas-1">Single GWAS</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(CD_UKBB, <span class="at">gene=</span><span class="st">"IL23R"</span>, <span class="at">annotate=</span><span class="fl">5e-9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Zoomed to region:  1:67038907-67359979"</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="912"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="multi-gwas-1" class="level3">
+<h3 class="anchored" data-anchor-id="multi-gwas-1">Multi GWAS</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">gene=</span><span class="st">"IL23R"</span>, <span class="at">annotate=</span><span class="fl">5e-9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Use the legend_labels argument to change the legend labels from color names to meaningful labels! "
+[1] "Zoomed to region:  1:67038907-67359979"</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="912"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="locuszoom" class="level2">
+<h2 class="anchored" data-anchor-id="locuszoom">locuszoom</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">locuszoom</span>(R2_CD_UKBB)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Zoomed to region:  1:67042284-67359988"</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="912"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="effectplot" class="level2">
+<h2 class="anchored" data-anchor-id="effectplot">effectplot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectplot</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">annotate=</span><span class="fl">5e-4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">effectplot</span>(<span class="fu">list</span>(CD_FINNGEN, CD_UKBB), <span class="at">color =</span> <span class="fu">get_topr_colors</span>()[<span class="dv">2</span>], <span class="at">annotate=</span><span class="fl">5e-4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ggforesttopr" class="level2">
+<h2 class="anchored" data-anchor-id="ggforesttopr">ggforesttopr</h2>
+<p>See https://totajuliusd.github.io/topr_manual/</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
