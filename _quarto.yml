@@ -11,6 +11,7 @@ website:
       - manhattan.qmd
       - regionplot.qmd
       - locuszoom.qmd
+      - ggforesttopr.qmd
       - effectplot.qmd
   sidebar:
     search: true
