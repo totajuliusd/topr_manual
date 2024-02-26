@@ -7,24 +7,31 @@ title: "manhattan"
 library(topr)
 ```
 
+```{r, echo=FALSE}
+mh.width=10
+mh.height=4
+mh.legend.height=4.5
+```
 
-```{r, fig.width=10, fig.height=4}
+
+
+```{r, fig.width=mh.width, fig.height=mh.height}
 manhattan(CD_UKBB)
 ```
 
 Annotate the top association peaks with the nearest gene
 
-```{r, fig.width=10, fig.height=4}
+```{r, fig.width=mh.width, fig.height=mh.height}
 manhattan(CD_UKBB, annotate=5e-09)
 ```
 
 Extract the lead snps and display them in red on the manhattan plot
 
-```{r, fig.width=10, fig.height=4.5, warning=F, message=F}
+```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
 lead_snps <- get_lead_snps(CD_UKBB, thresh = 5e-09, region_size = 10000000)
 ```
 
-```{r, fig.width=9, fig.height=4, warning=F, message=F}
+```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
 manhattan(list(CD_UKBB, lead_snps), 
           annotate=c(5e-100, 5e-09), 
           color=c("darkblue","red"), 
@@ -33,19 +40,14 @@ manhattan(list(CD_UKBB, lead_snps),
 
 Change the annotation to vertical and italic. Reduce the size of all text by setting the <code>scale</code> argument to 0.9. Move the legend labels to the top.
 
-<details>
-
-<summary><i>Click here to see the command </i></summary>
-
-```{r, fig.width=9, fig.height=4, warning=F, message=F}
+```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
 
 manhattan(list(CD_UKBB, lead_snps), 
           annotate=c(5e-100, 5e-09), 
           color=c("darkblue","red"), 
           legend_labels=c("CD UKBB", "Lead snp's"), 
-          size=c(1,1.7),
+          size=c(1,2),
           shape=c(19,8), 
-          label_size = 3.7, 
           angle = 90, 
           label_fontface = "italic", 
           nudge_y = 5, 
@@ -56,34 +58,20 @@ manhattan(list(CD_UKBB, lead_snps),
           verbose=F) 
 ```
 
-</details>
 
-<details>
-
-<summary><i>Click here to see the command </i></summary>
-
-```{r, echo=F}
-
+```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
 top_snps_finngen <- get_lead_snps(CD_FINNGEN)
-mh <- manhattan(list(CD_UKBB, lead_snps, top_snps_finngen),  color=c("red","darkred","gray40"),label_fontface = c("italic","bold","plain"), angle=c(90,0,0),
-          legend_labels = c("CD","top snps UKB", "top snps Finngen"),annotate=1e-20, build=enshuman::hg38)
+manhattan(list(CD_UKBB, lead_snps, top_snps_finngen),  
+          color=c("red","darkred","gray40"),
+          label_fontface = c("italic","bold","plain"), 
+          angle=c(90,0,0),
+          legend_labels = c("CD","top snps UKB", "top snps Finngen"),
+          annotate=1e-20)
 ```
 
-</details>
-
-```{r, fig.width=9, fig.height=4, warning=F, message=F}
-mh
-```
-
-<summary><i>Click here to see the command </i></summary>
-
-```{r, eval=F}
-
-top_snps_finngen <- get_lead_snps(CD_FINNGEN)
-mh <- manhattan(list(CD_UKBB, lead_snps, top_snps_finngen),  color=c("red","darkred","gray40"),label_fontface = c("italic","bold","plain"), angle=c(90,0,0),
-          legend_labels = c("CD","top snps UKB", "top snps Finngen"),annotate=1e-20, build=enshuman::hg38)
-```
-
-</details>
 
 ## Multi GWAS
+
+## Highlight known and novel loci
+
+

@@ -2,13 +2,13 @@
 title: "*topr* plotting functions"
 ---
 
-Examples of basic usage. For more examples on how to use each plotting function select the corresponding function name from the top navigation bar.
+Examples of basic usage. For more examples on how to use each plotting function select the function name from the top navigation bar.
 
 ```{r}
 library(topr)
 ```
 
-## Manhattan
+## manhattan
 
 ### Single GWAS
 ```{r, fig.width=10, fig.height=4}
@@ -19,6 +19,8 @@ manhattan(CD_UKBB, annotate=5e-9)
 ```{r, fig.width=9, fig.height=4.5}
 manhattan(list(CD_UKBB, CD_FINNGEN), annotate=5e-9)
 ```
+
+See [manhattan](https://totajuliusd.github.io/topr_manual/manhattan.html) for more examples and common use cases.
 
 ## regionplot
 
@@ -32,9 +34,54 @@ regionplot(CD_UKBB, gene="IL23R", annotate=5e-9)
 regionplot(list(CD_UKBB, CD_FINNGEN), gene="IL23R", annotate=5e-9)
 ```
 
+See [regionplot](https://totajuliusd.github.io/topr_manual/regionplot.html) for more examples.
+
 ## locuszoom
 ```{r, fig.width=9.5, fig.height=5}
 locuszoom(R2_CD_UKBB)
+```
+
+## ggforesttopr
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+snps <- read.table("/Users/tota/github/topr/snps.out.txt", header=T, sep="\t")
+snpset_list <- CD_UKBB %>% get_lead_snps(thresh = 5e-08,region_size=1000000) %>% match_by_pos(snps)
+snps_matched <- snpset_list$found %>% match_by_alleles()
+```
+
+```{r, echo=FALSE}
+snpsetm <- snps_matched$matched %>% annotate_with_nearest_gene() %>% arrange(-P1)
+coef.train <- data.frame(set="UKBB",rsid=snpsetm$ID,gene=snpsetm$Gene_Symbol,p=snpsetm$P1, beta=snpsetm$E1, or=exp(snpsetm$E1), se=-abs(snpsetm$E1)/stats::qnorm(snpsetm$P1/2))
+coef.test <- data.frame(set="FinnGen",rsid=snpsetm$ID,gene=snpsetm$Gene_Symbol,p=snpsetm$P2,beta=snpsetm$E2, or=exp(snpsetm$E2), se=-abs(snpsetm$E2)/stats::qnorm(snpsetm$P2/2))
+coef.frame <- rbind(coef.train,coef.test)
+```
+```{r, echo=F, message=F, warning=FALSE}
+library(ggplot2)
+p1 <- ggforestplot::forestplot(
+  df = coef.frame,
+  name = gene,
+  estimate = beta,
+  se = se,
+  colour = set,
+  shape = set,
+  xlab = "Odds ratio for CD (95% CI)",
+  title = "",
+  logodds = TRUE
+) + scale_colour_manual(values = c("UKBB"= "darkblue", "FinnGen" = get_topr_colors()[2])) %>% suppressWarnings() %>% suppressMessages()
+p1$layers[[1]]$aes_params$odd <- "#00000010" %>% suppressWarnings() %>% suppressMessages()
+
+```
+
+**ggforesttopr** will be available in the next *topr* release (v.2.0.1)
+
+```{r, eval=F}
+ggforesttopr(list(CD_UKBB, CD_FINNGEN))
+```
+
+
+```{r, echo=FALSE, fig.width=7, fig.height=6}
+p1
 ```
 
 ## effectplot
@@ -47,10 +94,5 @@ effectplot(list(CD_UKBB, CD_FINNGEN), annotate=5e-4)
  effectplot(list(CD_FINNGEN, CD_UKBB), color = get_topr_colors()[2], annotate=5e-4)
 ```
 
-## ggforesttopr
 
-See https://totajuliusd.github.io/topr_manual/
-
-```{r}
-1 + 1
-```
+## Other species

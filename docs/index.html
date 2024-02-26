@@ -179,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#manhattan" id="toc-manhattan" class="nav-link active" data-scroll-target="#manhattan">Manhattan</a>
+  <li><a href="#manhattan" id="toc-manhattan" class="nav-link active" data-scroll-target="#manhattan">manhattan</a>
   <ul class="collapse">
   <li><a href="#single-gwas" id="toc-single-gwas" class="nav-link" data-scroll-target="#single-gwas">Single GWAS</a></li>
   <li><a href="#multi-gwas" id="toc-multi-gwas" class="nav-link" data-scroll-target="#multi-gwas">Multi GWAS</a></li>
@@ -190,8 +190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#multi-gwas-1" id="toc-multi-gwas-1" class="nav-link" data-scroll-target="#multi-gwas-1">Multi GWAS</a></li>
   </ul></li>
   <li><a href="#locuszoom" id="toc-locuszoom" class="nav-link" data-scroll-target="#locuszoom">locuszoom</a></li>
-  <li><a href="#effectplot" id="toc-effectplot" class="nav-link" data-scroll-target="#effectplot">effectplot</a></li>
   <li><a href="#ggforesttopr" id="toc-ggforesttopr" class="nav-link" data-scroll-target="#ggforesttopr">ggforesttopr</a></li>
+  <li><a href="#effectplot" id="toc-effectplot" class="nav-link" data-scroll-target="#effectplot">effectplot</a></li>
   </ul>
 </nav>
     </div>
@@ -217,12 +217,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Examples of basic usage. For more examples on how to use each plotting function select the corresponding function name from the top navigation bar.</p>
+<p>Examples of basic usage. For more examples on how to use each plotting function select the function name from the top navigation bar.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="manhattan" class="level2">
-<h2 class="anchored" data-anchor-id="manhattan">Manhattan</h2>
+<h2 class="anchored" data-anchor-id="manhattan">manhattan</h2>
 <section id="single-gwas" class="level3">
 <h3 class="anchored" data-anchor-id="single-gwas">Single GWAS</h3>
 <div class="cell">
@@ -251,6 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>See <a href="https://totajuliusd.github.io/topr_manual/manhattan.html">manhattan</a> for more examples and common use cases.</p>
 </section>
 </section>
 <section id="regionplot" class="level2">
@@ -287,6 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>See <a href="https://totajuliusd.github.io/topr_manual/regionplot.html">regionplot</a> for more examples.</p>
 </section>
 </section>
 <section id="locuszoom" class="level2">
@@ -305,36 +307,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="effectplot" class="level2">
-<h2 class="anchored" data-anchor-id="effectplot">effectplot</h2>
+<section id="ggforesttopr" class="level2">
+<h2 class="anchored" data-anchor-id="ggforesttopr">ggforesttopr</h2>
+<p><strong>ggforesttopr</strong> will be available in the next <em>topr</em> release (v.2.0.1)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectplot</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">annotate=</span><span class="fl">5e-4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggforesttopr</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">effectplot</span>(<span class="fu">list</span>(CD_FINNGEN, CD_UKBB), <span class="at">color =</span> <span class="fu">get_topr_colors</span>()[<span class="dv">2</span>], <span class="at">annotate=</span><span class="fl">5e-4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="ggforesttopr" class="level2">
-<h2 class="anchored" data-anchor-id="ggforesttopr">ggforesttopr</h2>
-<p>See https://totajuliusd.github.io/topr_manual/</p>
+<section id="effectplot" class="level2">
+<h2 class="anchored" data-anchor-id="effectplot">effectplot</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectplot</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">annotate=</span><span class="fl">5e-4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">effectplot</span>(<span class="fu">list</span>(CD_FINNGEN, CD_UKBB), <span class="at">color =</span> <span class="fu">get_topr_colors</span>()[<span class="dv">2</span>], <span class="at">annotate=</span><span class="fl">5e-4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
 </div>
 </div>
 
