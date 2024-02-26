@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "topr plotting functions",
+    "title": "topr plot functions",
     "section": "",
-    "text": "Examples of basic usage. For more examples on how to use each plotting function select the function name from the top navigation bar.\nlibrary(topr)"
+    "text": "Examples of basic usage. For more examples on how to use each plot function select the function name from the top navigation bar.\nlibrary(topr)"
   },
   {
     "objectID": "about.html",
@@ -18,7 +18,7 @@
     "href": "manhattan.html",
     "title": "manhattan",
     "section": "",
-    "text": "library(topr)\n\n\nmanhattan(CD_UKBB)\n\n\n\n\n\n\n\n\nAnnotate the top association peaks with the nearest gene\n\nmanhattan(CD_UKBB, annotate=5e-09)\n\n\n\n\n\n\n\n\nExtract the lead snps and display them in red on the manhattan plot\n\nlead_snps &lt;- get_lead_snps(CD_UKBB, thresh = 5e-09, region_size = 10000000)\n\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), verbose=F) \n\n\n\n\n\n\n\n\nChange the annotation to vertical and italic. Reduce the size of all text by setting the scale argument to 0.9. Move the legend labels to the top.\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), \n          size=c(1,2),\n          shape=c(19,8), \n          angle = 90, \n          label_fontface = \"italic\", \n          nudge_y = 5, \n          scale=0.9, \n          legend_position = \"top\", \n          ymax=32,  \n          even_no_chr_lightness = c(0.8,0.5),\n          verbose=F) \n\n\n\n\n\n\n\n\n\ntop_snps_finngen &lt;- get_lead_snps(CD_FINNGEN)\nmanhattan(list(CD_UKBB, lead_snps, top_snps_finngen),  \n          color=c(\"red\",\"darkred\",\"gray40\"),\n          label_fontface = c(\"italic\",\"bold\",\"plain\"), \n          angle=c(90,0,0),\n          legend_labels = c(\"CD\",\"top snps UKB\", \"top snps Finngen\"),\n          annotate=1e-20)"
+    "text": "library(topr)\n\n\nmanhattan(CD_UKBB)\n\n\n\n\n\n\n\n\nAnnotate the top association peaks with the nearest gene\n\nmanhattan(CD_UKBB, annotate=5e-09)\n\n\n\n\n\n\n\n\nExtract the lead snps and display them in red on the manhattan plot\n\n#Set region_size to 10000000 to only get one lead snp for peaks spanning large regions (e.g the NOD2 loci)\nlead_snps &lt;- get_lead_snps(CD_UKBB, thresh = 5e-09, region_size = 10000000)\n\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), verbose=F) \n\n\n\n\n\n\n\n\nChange the annotation to vertical and italic. Reduce the size of all text by setting the scale argument to 0.9. Move the legend labels to the top.\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), \n          size=c(1,2),\n          shape=c(19,8), \n          angle = 90, \n          label_fontface = \"italic\", \n          nudge_y = 5, \n          scale=0.9, \n          legend_position = \"top\", \n          ymax=32,  \n          even_no_chr_lightness = c(0.8,0.5),\n          verbose=F) \n\n\n\n\n\n\n\n\n\ntop_snps_finngen &lt;- get_lead_snps(CD_FINNGEN)\nmanhattan(list(CD_UKBB, lead_snps, top_snps_finngen),  \n          color=c(\"red\",\"darkred\",\"gray40\"),\n          label_fontface = c(\"italic\",\"bold\",\"plain\"), \n          angle=c(90,0,0),\n          legend_labels = c(\"CD\",\"top snps UKB\", \"top snps Finngen\"),\n          annotate=1e-20)"
   },
   {
     "objectID": "index.html#multi-gwas",
@@ -30,7 +30,7 @@
   {
     "objectID": "index.html#regionplot",
     "href": "index.html#regionplot",
-    "title": "topr plotting functions",
+    "title": "topr plot functions",
     "section": "regionplot",
     "text": "regionplot\n\nSingle GWAS\n\nregionplot(CD_UKBB, gene=\"IL23R\", annotate=5e-9)\n\n[1] \"Zoomed to region:  1:67038907-67359979\"\n\n\n\n\n\n\n\n\n\n\n\nMulti GWAS\n\nregionplot(list(CD_UKBB, CD_FINNGEN), gene=\"IL23R\", annotate=5e-9)\n\n[1] \"Use the legend_labels argument to change the legend labels from color names to meaningful labels! \"\n[1] \"Zoomed to region:  1:67038907-67359979\"\n\n\n\n\n\n\n\n\n\nSee regionplot for more examples."
   },
@@ -39,26 +39,26 @@
     "href": "manhattan.html#single-gwas",
     "title": "manhattan",
     "section": "",
-    "text": "library(topr)\n\n\nmanhattan(CD_UKBB)\n\n\n\n\n\n\n\n\nAnnotate the top association peaks with the nearest gene\n\nmanhattan(CD_UKBB, annotate=5e-09)\n\n\n\n\n\n\n\n\nExtract the lead snps and display them in red on the manhattan plot\n\nlead_snps &lt;- get_lead_snps(CD_UKBB, thresh = 5e-09, region_size = 10000000)\n\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), verbose=F) \n\n\n\n\n\n\n\n\nChange the annotation to vertical and italic. Reduce the size of all text by setting the scale argument to 0.9. Move the legend labels to the top.\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), \n          size=c(1,2),\n          shape=c(19,8), \n          angle = 90, \n          label_fontface = \"italic\", \n          nudge_y = 5, \n          scale=0.9, \n          legend_position = \"top\", \n          ymax=32,  \n          even_no_chr_lightness = c(0.8,0.5),\n          verbose=F) \n\n\n\n\n\n\n\n\n\ntop_snps_finngen &lt;- get_lead_snps(CD_FINNGEN)\nmanhattan(list(CD_UKBB, lead_snps, top_snps_finngen),  \n          color=c(\"red\",\"darkred\",\"gray40\"),\n          label_fontface = c(\"italic\",\"bold\",\"plain\"), \n          angle=c(90,0,0),\n          legend_labels = c(\"CD\",\"top snps UKB\", \"top snps Finngen\"),\n          annotate=1e-20)"
+    "text": "library(topr)\n\n\nmanhattan(CD_UKBB)\n\n\n\n\n\n\n\n\nAnnotate the top association peaks with the nearest gene\n\nmanhattan(CD_UKBB, annotate=5e-09)\n\n\n\n\n\n\n\n\nExtract the lead snps and display them in red on the manhattan plot\n\n#Set region_size to 10000000 to only get one lead snp for peaks spanning large regions (e.g the NOD2 loci)\nlead_snps &lt;- get_lead_snps(CD_UKBB, thresh = 5e-09, region_size = 10000000)\n\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), verbose=F) \n\n\n\n\n\n\n\n\nChange the annotation to vertical and italic. Reduce the size of all text by setting the scale argument to 0.9. Move the legend labels to the top.\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), \n          size=c(1,2),\n          shape=c(19,8), \n          angle = 90, \n          label_fontface = \"italic\", \n          nudge_y = 5, \n          scale=0.9, \n          legend_position = \"top\", \n          ymax=32,  \n          even_no_chr_lightness = c(0.8,0.5),\n          verbose=F) \n\n\n\n\n\n\n\n\n\ntop_snps_finngen &lt;- get_lead_snps(CD_FINNGEN)\nmanhattan(list(CD_UKBB, lead_snps, top_snps_finngen),  \n          color=c(\"red\",\"darkred\",\"gray40\"),\n          label_fontface = c(\"italic\",\"bold\",\"plain\"), \n          angle=c(90,0,0),\n          legend_labels = c(\"CD\",\"top snps UKB\", \"top snps Finngen\"),\n          annotate=1e-20)"
   },
   {
     "objectID": "manhattan.html#multi-gwas",
     "href": "manhattan.html#multi-gwas",
     "title": "manhattan",
     "section": "Multi GWAS",
-    "text": "Multi GWAS"
+    "text": "Multi GWAS\n\nmanhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-12, legend_labels=c(\"CD UKBB\", \"CD FINNGEN\"))\n\n\n\n\n\n\n\n\n\nmanhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-9,  legend_labels=c(\"CD UKBB\", \"CD FINNGEN\"), ntop=1)"
   },
   {
     "objectID": "index.html#locuszoom",
     "href": "index.html#locuszoom",
-    "title": "topr plotting functions",
+    "title": "topr plot functions",
     "section": "locuszoom",
     "text": "locuszoom\n\nlocuszoom(R2_CD_UKBB)\n\n[1] \"Zoomed to region:  1:67042284-67359988\""
   },
   {
     "objectID": "index.html#effectplot",
     "href": "index.html#effectplot",
-    "title": "topr plotting functions",
+    "title": "topr plot functions",
     "section": "effectplot",
     "text": "effectplot\n\neffectplot(list(CD_UKBB, CD_FINNGEN), annotate=5e-4)\n\n\n\n\n\n\n\n\n\n effectplot(list(CD_FINNGEN, CD_UKBB), color = get_topr_colors()[2], annotate=5e-4)"
   },
@@ -72,15 +72,29 @@
   {
     "objectID": "index.html#ggforesttopr",
     "href": "index.html#ggforesttopr",
-    "title": "topr plotting functions",
+    "title": "topr plot functions",
     "section": "ggforesttopr",
     "text": "ggforesttopr\nggforesttopr will be available in the next topr release (v.2.0.1)\n\nggforesttopr(list(CD_UKBB, CD_FINNGEN))"
   },
   {
     "objectID": "index.html#manhattan",
     "href": "index.html#manhattan",
-    "title": "topr plotting functions",
+    "title": "topr plot functions",
     "section": "manhattan",
     "text": "manhattan\n\nSingle GWAS\n\nmanhattan(CD_UKBB, annotate=5e-9)\n\n\n\n\n\n\n\n\n\n\nMulti GWAS\n\nmanhattan(list(CD_UKBB, CD_FINNGEN), annotate=5e-9)\n\n[1] \"Use the legend_labels argument to change the legend labels from color names to meaningful labels! \"\n\n\n\n\n\n\n\n\n\nSee manhattan for more examples and common use cases."
+  },
+  {
+    "objectID": "index.html#other-species",
+    "href": "index.html#other-species",
+    "title": "topr plot functions",
+    "section": "Other species",
+    "text": "Other species"
+  },
+  {
+    "objectID": "manhattan.html#highlight-known-and-novel-loci",
+    "href": "manhattan.html#highlight-known-and-novel-loci",
+    "title": "manhattan",
+    "section": "Highlight known and novel loci",
+    "text": "Highlight known and novel loci\n\n#create dataframes for hypothetically known and novel loci\nCD_UKBB_annotated &lt;- CD_UKBB %&gt;% filter(P&lt;5e-09) %&gt;%annotate_with_nearest_gene()\nknown_UKB &lt;- CD_UKBB_annotated %&gt;% filter(Gene_Symbol %in% c(\"C1orf141\",\"IL23R\",\"NOD2\",\"NKD1\",\"CYLD\",\"IKZF1\"))\nnovel_UKB &lt;- CD_UKBB_annotated %&gt;% filter(Gene_Symbol %in% c(\"JAK2\",\"TTC33\",\"ATG16L1\"))\n\nCD_FINNGEN_annotated &lt;- CD_FINNGEN %&gt;% filter(P&lt;5e-09) %&gt;% annotate_with_nearest_gene()\nknown_FG &lt;- CD_FINNGEN_annotated %&gt;% filter(Gene_Symbol %in% c(\"TNRC18\",\"FBXL18\",\"RNF216\",\"WIPI2\", \"RNU6-215P\", \"IL23R\",\"NOD2\"))\nnovel_FG &lt;- CD_FINNGEN_annotated %&gt;% filter(Gene_Symbol %in% c(\"ADO\",\"TTC33\",\"NKX2-3\"))\n\n\nmanhattan(list(CD_UKBB, known_UKB, novel_UKB, CD_FINNGEN %&gt;% filter(P&gt;1e-35), known_FG,novel_FG), ntop=3,\n          color=c(\"#A0A0A0\",\"blue\",\"red\",\"#A5A5A5\",\"blue\",\"red\"), \n          legend_labels=c(\"UKBB\",\"known\",\"novel\",\"FinnGen\", \"known\",\"novel\"), \n          highlight_genes = c(\"IL23R\",\"TTC33\",\"NOD2\"), highlight_genes_ypos = -0.5,\n          highlight_genes_color = \"green\", \n          annotate = c(1e-50,5e-08,5e-08,1e-50,5e-08,5e-08), \n          angle=90,nudge_y=7, ymax=33, ymin=-43,\n          even_no_chr_lightness = c(0.8,0.5,0.5,0.8,0.5,0.5),\n          title=\"Crohn's UKBB vs Crohn's Finngen\",\n          sign_thresh = 5e-09,\n          verbose=F)"
   }
 ]

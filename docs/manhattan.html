@@ -181,6 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#single-gwas" id="toc-single-gwas" class="nav-link active" data-scroll-target="#single-gwas">Single GWAS</a></li>
   <li><a href="#multi-gwas" id="toc-multi-gwas" class="nav-link" data-scroll-target="#multi-gwas">Multi GWAS</a></li>
+  <li><a href="#highlight-known-and-novel-loci" id="toc-highlight-known-and-novel-loci" class="nav-link" data-scroll-target="#highlight-known-and-novel-loci">Highlight known and novel loci</a></li>
   </ul>
 </nav>
     </div>
@@ -216,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="manhattan_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="manhattan_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -227,14 +228,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="manhattan_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="manhattan_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Extract the lead snps and display them in red on the manhattan plot</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lead_snps <span class="ot">&lt;-</span> <span class="fu">get_lead_snps</span>(CD_UKBB, <span class="at">thresh =</span> <span class="fl">5e-09</span>, <span class="at">region_size =</span> <span class="dv">10000000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Set region_size to 10000000 to only get one lead snp for peaks spanning large regions (e.g the NOD2 loci)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lead_snps <span class="ot">&lt;-</span> <span class="fu">get_lead_snps</span>(CD_UKBB, <span class="at">thresh =</span> <span class="fl">5e-09</span>, <span class="at">region_size =</span> <span class="dv">10000000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, lead_snps), </span>
@@ -244,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="manhattan_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="manhattan_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -268,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="manhattan_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="manhattan_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -284,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="manhattan_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="manhattan_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -292,6 +294,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="multi-gwas" class="level2">
 <h2 class="anchored" data-anchor-id="multi-gwas">Multi GWAS</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">annotate =</span> <span class="fl">1e-12</span>, <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"CD FINNGEN"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manhattan_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">annotate =</span> <span class="fl">1e-9</span>,  <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"CD FINNGEN"</span>), <span class="at">ntop=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manhattan_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="highlight-known-and-novel-loci" class="level2">
+<h2 class="anchored" data-anchor-id="highlight-known-and-novel-loci">Highlight known and novel loci</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create dataframes for hypothetically known and novel loci</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>CD_UKBB_annotated <span class="ot">&lt;-</span> CD_UKBB <span class="sc">%&gt;%</span> <span class="fu">filter</span>(P<span class="sc">&lt;</span><span class="fl">5e-09</span>) <span class="sc">%&gt;%</span><span class="fu">annotate_with_nearest_gene</span>()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>known_UKB <span class="ot">&lt;-</span> CD_UKBB_annotated <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Gene_Symbol <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"C1orf141"</span>,<span class="st">"IL23R"</span>,<span class="st">"NOD2"</span>,<span class="st">"NKD1"</span>,<span class="st">"CYLD"</span>,<span class="st">"IKZF1"</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>novel_UKB <span class="ot">&lt;-</span> CD_UKBB_annotated <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Gene_Symbol <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"JAK2"</span>,<span class="st">"TTC33"</span>,<span class="st">"ATG16L1"</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>CD_FINNGEN_annotated <span class="ot">&lt;-</span> CD_FINNGEN <span class="sc">%&gt;%</span> <span class="fu">filter</span>(P<span class="sc">&lt;</span><span class="fl">5e-09</span>) <span class="sc">%&gt;%</span> <span class="fu">annotate_with_nearest_gene</span>()</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>known_FG <span class="ot">&lt;-</span> CD_FINNGEN_annotated <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Gene_Symbol <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"TNRC18"</span>,<span class="st">"FBXL18"</span>,<span class="st">"RNF216"</span>,<span class="st">"WIPI2"</span>, <span class="st">"RNU6-215P"</span>, <span class="st">"IL23R"</span>,<span class="st">"NOD2"</span>))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>novel_FG <span class="ot">&lt;-</span> CD_FINNGEN_annotated <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Gene_Symbol <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ADO"</span>,<span class="st">"TTC33"</span>,<span class="st">"NKX2-3"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, known_UKB, novel_UKB, CD_FINNGEN <span class="sc">%&gt;%</span> <span class="fu">filter</span>(P<span class="sc">&gt;</span><span class="fl">1e-35</span>), known_FG,novel_FG), <span class="at">ntop=</span><span class="dv">3</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">color=</span><span class="fu">c</span>(<span class="st">"#A0A0A0"</span>,<span class="st">"blue"</span>,<span class="st">"red"</span>,<span class="st">"#A5A5A5"</span>,<span class="st">"blue"</span>,<span class="st">"red"</span>), </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"UKBB"</span>,<span class="st">"known"</span>,<span class="st">"novel"</span>,<span class="st">"FinnGen"</span>, <span class="st">"known"</span>,<span class="st">"novel"</span>), </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">highlight_genes =</span> <span class="fu">c</span>(<span class="st">"IL23R"</span>,<span class="st">"TTC33"</span>,<span class="st">"NOD2"</span>), <span class="at">highlight_genes_ypos =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">highlight_genes_color =</span> <span class="st">"green"</span>, </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">annotate =</span> <span class="fu">c</span>(<span class="fl">1e-50</span>,<span class="fl">5e-08</span>,<span class="fl">5e-08</span>,<span class="fl">1e-50</span>,<span class="fl">5e-08</span>,<span class="fl">5e-08</span>), </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">angle=</span><span class="dv">90</span>,<span class="at">nudge_y=</span><span class="dv">7</span>, <span class="at">ymax=</span><span class="dv">33</span>, <span class="at">ymin=</span><span class="sc">-</span><span class="dv">43</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">even_no_chr_lightness =</span> <span class="fu">c</span>(<span class="fl">0.8</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.8</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">title=</span><span class="st">"Crohn's UKBB vs Crohn's Finngen"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">sign_thresh =</span> <span class="fl">5e-09</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">verbose=</span>F) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="manhattan_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>

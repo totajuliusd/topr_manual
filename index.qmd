@@ -1,8 +1,8 @@
 ---
-title: "*topr* plotting functions"
+title: "*topr* plot functions"
 ---
 
-Examples of basic usage. For more examples on how to use each plotting function select the function name from the top navigation bar.
+Examples of basic usage. For more examples on how to use each plot function select the function name from the top navigation bar.
 
 ```{r}
 library(topr)
@@ -45,7 +45,7 @@ locuszoom(R2_CD_UKBB)
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(dplyr)
-snps <- read.table("/Users/tota/github/topr/snps.out.txt", header=T, sep="\t")
+snps <- read.table("/Users/tota/github/topr/local/snps.out.txt", header=T, sep="\t")
 snpset_list <- CD_UKBB %>% get_lead_snps(thresh = 5e-08,region_size=1000000) %>% match_by_pos(snps)
 snps_matched <- snpset_list$found %>% match_by_alleles()
 ```
