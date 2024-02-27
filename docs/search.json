@@ -46,7 +46,7 @@
     "href": "manhattan.html#multi-gwas",
     "title": "manhattan",
     "section": "Multi GWAS",
-    "text": "Multi GWAS\n\nmanhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-12, legend_labels=c(\"CD UKBB\", \"CD FinnGen\"))\n\n\n\n\n\n\n\n\n\nmanhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-9,  legend_labels=c(\"CD UKBB\", \"CD FinnGen\"), ntop=1)\n\n\n\n\n\n\n\n\n\nmanhattan(list(CD_UKBB, CD_FINNGEN, UC_UKBB), \n          annotate = 1e-15,  \n          legend_labels=c(\"CD UKBB\", \"CD FinnGen\", \"UC UKBB\"), \n          ntop=2, \n          color = c(\"darkorange\",\"darkred\",\"#464646\"), \n          sign_thresh_color = \"darkred\", ymin=-38)"
+    "text": "Multi GWAS\n\nmanhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-12, legend_labels=c(\"Crohn's (ukb)\", \"Crohn's (FinnGen)\"), title=\"Inflammatory Bowel Disease\")\n\n\n\n\n\n\n\n\n\nmanhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-9,  legend_labels=c(\"Crohn's (ukb)\", \"Crohn's (FinnGen)\"), ntop=1, title=\"Inflammatory Bowel Disease\")\n\n\n\n\n\n\n\n\n\nmanhattan(list(CD_UKBB, CD_FINNGEN, UC_UKBB), \n          annotate = 1e-15,  \n          legend_labels=c(\"Crohn's (ukb)\", \"Crohn's (FinnGen)\", \"Colitis Ulcerosa (ukb)\"), \n          ntop=2, \n          color = c(\"#f47c3c\",\"darkred\",\"#464646\"), \n          sign_thresh_color = \"darkred\", \n          ymin=-38,\n          title=\"Inflammatory Bowel Disease\")"
   },
   {
     "objectID": "index.html#locuszoom",
@@ -144,7 +144,7 @@
     "href": "manhattan.html#single-gwas-with-leadindex-snps",
     "title": "manhattan",
     "section": "Single GWAS with lead/index snp’s",
-    "text": "Single GWAS with lead/index snp’s\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), verbose=F) \n\n\n\n\n\n\n\n\nChange the annotation to vertical and italic. Reduce the size of all text by setting the scale argument to 0.9. Move the legend labels to the top.\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), \n          size=c(1,2),\n          shape=c(19,8), \n          angle = 90, \n          label_fontface = \"italic\", \n          nudge_y = 5, \n          scale=0.9, \n          legend_position = \"top\", \n          ymax=32,  \n          even_no_chr_lightness = c(0.8,0.5),\n          verbose=F)"
+    "text": "Single GWAS with lead/index snp’s\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), verbose=F, title=\"Crohn's disease\") \n\n\n\n\n\n\n\n\nChange the annotation to vertical and italic. Reduce the size of all text by setting the scale argument to 0.9. Move the legend labels to the top.\n\nmanhattan(list(CD_UKBB, lead_snps), \n          annotate=c(5e-100, 5e-09), \n          color=c(\"darkblue\",\"red\"), \n          legend_labels=c(\"CD UKBB\", \"Lead snp's\"), \n          size=c(1,2),\n          shape=c(19,8), \n          angle = 90, \n          label_fontface = \"italic\", \n          nudge_y = 5, \n          scale=0.9, \n          legend_position = \"top\", \n          ymax=32,  \n          even_no_chr_lightness = c(0.8,0.5),\n          verbose=F,\n          title=\"Crohn's disease\")"
   },
   {
     "objectID": "manhattan.html#change-anglefontface-and-size-of-labels",
@@ -152,5 +152,12 @@
     "title": "manhattan",
     "section": "Change angle,fontface and size of labels",
     "text": "Change angle,fontface and size of labels\n\nlead_snps_FG&lt;- get_lead_snps(CD_FINNGEN)\nmanhattan(list(CD_UKBB, lead_snps_FG),  \n          color = c(\"darkred\", \"#464646\"),\n          label_fontface = c(\"italic\",\"bold\"), \n          angle=c(90,45),\n          legend_labels = c(\"CD UKBB\",\"lead snps FinnGen\"),\n          annotate=c(1e-15, 1e-12), \n          ymax=60, \n          nudge_y=c(8, 4),\n          shape=c(19, 8), size=c(1,2))"
+  },
+  {
+    "objectID": "manhattan.html#change-angle-fontface-and-size-of-labels",
+    "href": "manhattan.html#change-angle-fontface-and-size-of-labels",
+    "title": "manhattan",
+    "section": "Change angle, fontface and size of labels",
+    "text": "Change angle, fontface and size of labels\n\nlead_snps_FG&lt;- get_lead_snps(CD_FINNGEN)\nmanhattan(list(CD_UKBB, lead_snps_FG),  \n          color = c(\"darkred\", \"#464646\"),\n          label_fontface = c(\"italic\",\"bold\"), \n          angle=c(90,45),\n          legend_labels = c(\"Crohn's ukb\",\" lead snps FinnGen\"),\n          annotate=c(1e-15, 1e-12), \n          ymax=60, \n          nudge_y=c(8, 4),\n          shape=c(19, 8), size=c(1,2))"
   }
 ]

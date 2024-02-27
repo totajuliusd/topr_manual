@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#single-gwas-1" id="toc-single-gwas-1" class="nav-link" data-scroll-target="#single-gwas-1">Single GWAS</a></li>
   <li><a href="#multi-gwas-1" id="toc-multi-gwas-1" class="nav-link" data-scroll-target="#multi-gwas-1">Multi GWAS</a></li>
   </ul></li>
-  <li><a href="#change-anglefontface-and-size-of-labels" id="toc-change-anglefontface-and-size-of-labels" class="nav-link" data-scroll-target="#change-anglefontface-and-size-of-labels">Change angle,fontface and size of labels</a></li>
+  <li><a href="#change-angle-fontface-and-size-of-labels" id="toc-change-angle-fontface-and-size-of-labels" class="nav-link" data-scroll-target="#change-angle-fontface-and-size-of-labels">Change angle, fontface and size of labels</a></li>
   </ul>
 </nav>
     </div>
@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, lead_snps), </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">annotate=</span><span class="fu">c</span>(<span class="fl">5e-100</span>, <span class="fl">5e-09</span>), </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">color=</span><span class="fu">c</span>(<span class="st">"darkblue"</span>,<span class="st">"red"</span>), </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"Lead snp's"</span>), <span class="at">verbose=</span>F) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"Lead snp's"</span>), <span class="at">verbose=</span>F, <span class="at">title=</span><span class="st">"Crohn's disease"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -279,7 +279,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_position =</span> <span class="st">"top"</span>, </span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">ymax=</span><span class="dv">32</span>,  </span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">even_no_chr_lightness =</span> <span class="fu">c</span>(<span class="fl">0.8</span>,<span class="fl">0.5</span>),</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">verbose=</span>F) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">verbose=</span>F,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">title=</span><span class="st">"Crohn's disease"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -292,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="multi-gwas" class="level2">
 <h2 class="anchored" data-anchor-id="multi-gwas">Multi GWAS</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">annotate =</span> <span class="fl">1e-12</span>, <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"CD FinnGen"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">annotate =</span> <span class="fl">1e-12</span>, <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"Crohn's (ukb)"</span>, <span class="st">"Crohn's (FinnGen)"</span>), <span class="at">title=</span><span class="st">"Inflammatory Bowel Disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -302,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">annotate =</span> <span class="fl">1e-9</span>,  <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"CD FinnGen"</span>), <span class="at">ntop=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">annotate =</span> <span class="fl">1e-9</span>,  <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"Crohn's (ukb)"</span>, <span class="st">"Crohn's (FinnGen)"</span>), <span class="at">ntop=</span><span class="dv">1</span>, <span class="at">title=</span><span class="st">"Inflammatory Bowel Disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -314,10 +315,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN, UC_UKBB), </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">annotate =</span> <span class="fl">1e-15</span>,  </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"CD UKBB"</span>, <span class="st">"CD FinnGen"</span>, <span class="st">"UC UKBB"</span>), </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels=</span><span class="fu">c</span>(<span class="st">"Crohn's (ukb)"</span>, <span class="st">"Crohn's (FinnGen)"</span>, <span class="st">"Colitis Ulcerosa (ukb)"</span>), </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">ntop=</span><span class="dv">2</span>, </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkred"</span>,<span class="st">"#464646"</span>), </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">sign_thresh_color =</span> <span class="st">"darkred"</span>, <span class="at">ymin=</span><span class="sc">-</span><span class="dv">38</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"#f47c3c"</span>,<span class="st">"darkred"</span>,<span class="st">"#464646"</span>), </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">sign_thresh_color =</span> <span class="st">"darkred"</span>, </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">ymin=</span><span class="sc">-</span><span class="dv">38</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">title=</span><span class="st">"Inflammatory Bowel Disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -383,15 +386,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="change-anglefontface-and-size-of-labels" class="level2">
-<h2 class="anchored" data-anchor-id="change-anglefontface-and-size-of-labels">Change angle,fontface and size of labels</h2>
+<section id="change-angle-fontface-and-size-of-labels" class="level2">
+<h2 class="anchored" data-anchor-id="change-angle-fontface-and-size-of-labels">Change angle, fontface and size of labels</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lead_snps_FG<span class="ot">&lt;-</span> <span class="fu">get_lead_snps</span>(CD_FINNGEN)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(<span class="fu">list</span>(CD_UKBB, lead_snps_FG),  </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"darkred"</span>, <span class="st">"#464646"</span>),</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">label_fontface =</span> <span class="fu">c</span>(<span class="st">"italic"</span>,<span class="st">"bold"</span>), </span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">angle=</span><span class="fu">c</span>(<span class="dv">90</span>,<span class="dv">45</span>),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels =</span> <span class="fu">c</span>(<span class="st">"CD UKBB"</span>,<span class="st">"lead snps FinnGen"</span>),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend_labels =</span> <span class="fu">c</span>(<span class="st">"Crohn's ukb"</span>,<span class="st">" lead snps FinnGen"</span>),</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">annotate=</span><span class="fu">c</span>(<span class="fl">1e-15</span>, <span class="fl">1e-12</span>), </span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">ymax=</span><span class="dv">60</span>, </span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">nudge_y=</span><span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">4</span>),</span>

@@ -5,7 +5,7 @@ title: "manhattan"
 library(dplyr)
 mh.width=10
 mh.height=4
-mh.legend.height=4.5
+mh.legend.height=4.7
 mh.multi.height=6.5
 ```
 
@@ -33,16 +33,16 @@ lead_snps <- get_lead_snps(CD_UKBB, thresh = 5e-09, region_size = 10000000)
 
 ## Single GWAS with lead/index snp's
 
-```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
+```{r, fig.width=mh.width, fig.height=mh.legend.height+0.1, warning=F, message=F}
 manhattan(list(CD_UKBB, lead_snps), 
           annotate=c(5e-100, 5e-09), 
           color=c("darkblue","red"), 
-          legend_labels=c("CD UKBB", "Lead snp's"), verbose=F) 
+          legend_labels=c("CD UKBB", "Lead snp's"), verbose=F, title="Crohn's disease") 
 ```
 
 Change the annotation to vertical and italic. Reduce the size of all text by setting the <code>scale</code> argument to 0.9. Move the legend labels to the top.
 
-```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
+```{r, fig.width=mh.width, fig.height=mh.legend.height+0.1, warning=F, message=F}
 
 manhattan(list(CD_UKBB, lead_snps), 
           annotate=c(5e-100, 5e-09), 
@@ -57,27 +57,30 @@ manhattan(list(CD_UKBB, lead_snps),
           legend_position = "top", 
           ymax=32,  
           even_no_chr_lightness = c(0.8,0.5),
-          verbose=F) 
+          verbose=F,
+          title="Crohn's disease") 
 ```
 
 
 ## Multi GWAS
 
-```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
-manhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-12, legend_labels=c("CD UKBB", "CD FinnGen"))
+```{r, fig.width=mh.width, fig.height=mh.legend.height+0.1, warning=F, message=F}
+manhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-12, legend_labels=c("Crohn's (ukb)", "Crohn's (FinnGen)"), title="Inflammatory Bowel Disease")
 ```
 
 ```{r, fig.width=mh.width, fig.height=mh.multi.height, warning=F, message=F}
-manhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-9,  legend_labels=c("CD UKBB", "CD FinnGen"), ntop=1)
+manhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-9,  legend_labels=c("Crohn's (ukb)", "Crohn's (FinnGen)"), ntop=1, title="Inflammatory Bowel Disease")
 ```
 
-```{r, fig.width=mh.width, fig.height=mh.multi.height, warning=F, message=F}
+```{r, fig.width=mh.width, fig.height=6.8, warning=F, message=F}
 manhattan(list(CD_UKBB, CD_FINNGEN, UC_UKBB), 
           annotate = 1e-15,  
-          legend_labels=c("CD UKBB", "CD FinnGen", "UC UKBB"), 
+          legend_labels=c("Crohn's (ukb)", "Crohn's (FinnGen)", "Colitis Ulcerosa (ukb)"), 
           ntop=2, 
-          color = c("darkorange","darkred","#464646"), 
-          sign_thresh_color = "darkred", ymin=-38)
+          color = c("#f47c3c","darkred","#464646"), 
+          sign_thresh_color = "darkred", 
+          ymin=-38,
+          title="Inflammatory Bowel Disease")
 ```
 
 ## Highlight known and novel loci
@@ -124,7 +127,7 @@ manhattan(list(CD_UKBB, known_UKB, novel_UKB, CD_FINNGEN %>% filter(P>1e-35), kn
 ```
 
 
-## Change angle,fontface and size of labels
+## Change angle, fontface and size of labels
 
 ```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
 lead_snps_FG<- get_lead_snps(CD_FINNGEN)
@@ -132,7 +135,7 @@ manhattan(list(CD_UKBB, lead_snps_FG),
           color = c("darkred", "#464646"),
           label_fontface = c("italic","bold"), 
           angle=c(90,45),
-          legend_labels = c("CD UKBB","lead snps FinnGen"),
+          legend_labels = c("Crohn's ukb"," lead snps FinnGen"),
           annotate=c(1e-15, 1e-12), 
           ymax=60, 
           nudge_y=c(8, 4),
