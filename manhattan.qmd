@@ -3,24 +3,17 @@ title: "manhattan"
 ---
 ```{r, echo=F, warning=F, message=F}
 library(dplyr)
-```
-
-## Single GWAS
-
-
-```{r}
-library(topr)
-```
-
-```{r, echo=FALSE}
 mh.width=10
 mh.height=4
 mh.legend.height=4.5
 mh.multi.height=6.5
 ```
 
+```{r}
+library(topr)
+```
 
-
+## Single GWAS 
 ```{r, fig.width=mh.width, fig.height=mh.height}
 manhattan(CD_UKBB)
 ```
@@ -37,6 +30,8 @@ Extract the lead snps and display them in red on the manhattan plot
 #Set region_size to 10000000 to only get one lead snp for peaks spanning large regions (e.g the NOD2 loci)
 lead_snps <- get_lead_snps(CD_UKBB, thresh = 5e-09, region_size = 10000000)
 ```
+
+## Single GWAS with lead/index snp's
 
 ```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
 manhattan(list(CD_UKBB, lead_snps), 
@@ -66,17 +61,6 @@ manhattan(list(CD_UKBB, lead_snps),
 ```
 
 
-```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
-top_snps_finngen <- get_lead_snps(CD_FINNGEN)
-manhattan(list(CD_UKBB, lead_snps, top_snps_finngen),  
-          color=c("red","darkred","gray40"),
-          label_fontface = c("italic","bold","plain"), 
-          angle=c(90,0,0),
-          legend_labels = c("CD","top snps UKB", "top snps Finngen"),
-          annotate=1e-20)
-```
-
-
 ## Multi GWAS
 
 ```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
@@ -89,12 +73,28 @@ manhattan(list(CD_UKBB, CD_FINNGEN), annotate = 1e-9,  legend_labels=c("CD UKBB"
 
 ## Highlight known and novel loci
 
+### Single GWAS
 ```{r}
 #create dataframes for hypothetically known and novel loci
 CD_UKBB_annotated <- CD_UKBB %>% filter(P<5e-09) %>%annotate_with_nearest_gene()
 known_UKB <- CD_UKBB_annotated %>% filter(Gene_Symbol %in% c("C1orf141","IL23R","NOD2","NKD1","CYLD","IKZF1"))
 novel_UKB <- CD_UKBB_annotated %>% filter(Gene_Symbol %in% c("JAK2","TTC33","ATG16L1"))
+```
 
+```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
+manhattan(list(CD_UKBB, known_UKB, novel_UKB),
+          color=c("#A0A0A0","blue","red"), 
+          legend_labels=c("UKBB","known","novel"), 
+          annotate = c(1e-50,5e-08,5e-08), 
+          even_no_chr_lightness = c(0.8,0.5,0.5),
+          sign_thresh = 5e-09,
+          verbose=F) 
+```
+
+
+### Multi GWAS
+
+```{r}
 CD_FINNGEN_annotated <- CD_FINNGEN %>% filter(P<5e-09) %>% annotate_with_nearest_gene()
 known_FG <- CD_FINNGEN_annotated %>% filter(Gene_Symbol %in% c("TNRC18","FBXL18","RNF216","WIPI2", "RNU6-215P", "IL23R","NOD2"))
 novel_FG <- CD_FINNGEN_annotated %>% filter(Gene_Symbol %in% c("ADO","TTC33","NKX2-3"))
@@ -115,3 +115,14 @@ manhattan(list(CD_UKBB, known_UKB, novel_UKB, CD_FINNGEN %>% filter(P>1e-35), kn
 ```
 
 
+## Change appearance and of labels
+
+```{r, fig.width=mh.width, fig.height=mh.legend.height, warning=F, message=F}
+top_snps_finngen <- get_lead_snps(CD_FINNGEN)
+manhattan(list(CD_UKBB, lead_snps, top_snps_finngen),  
+          color=c("red","darkred","gray40"),
+          label_fontface = c("italic","bold","plain"), 
+          angle=c(90,0,0),
+          legend_labels = c("CD","top snps UKB", "top snps Finngen"),
+          annotate=1e-20)
+```

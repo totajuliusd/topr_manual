@@ -2,8 +2,33 @@
 title: "regionplot"
 ---
 
-About this site
-
 ```{r}
-1 + 1
+library(topr)
+```
+
+### Single GWAS
+
+```{r, fig.width=9.5, fig.height=5.7}
+regionplot(CD_UKBB, gene="IL23R")
+```
+
+Label the top marker
+
+```{r, fig.width=9.5, fig.height=5.7}
+regionplot(CD_UKBB, gene="IL23R", annotate=5e-9)
+```
+Annotate the top marker per 100000 bp region (<code>region_size=100000</code>) and further highlight the marker position with a vertical line. Move the marker id's slightly up and towards the right (<code>nudge_y=1</code> and <code>nudge_x=25000</code>).
+
+```{r, fig.width=9.5, fig.height=5.7}
+regionplot(CD_UKBB, gene="IL23R", annotate_with_vline = 5e-8, region_size = 100000, nudge_y=1, nudge_x=25000)
+```
+
+## Multi GWAS 
+
+```{r, fig.width=9.5, fig.height=5.7}
+regionplot(list(CD_UKBB, CD_FINNGEN), gene="IL23R")
+```
+
+```{r, fig.width=9.5, fig.height=5.7}
+regionplot(list(CD_UKBB, CD_FINNGEN), gene="IL23R", annotate_with_vline =5e-08, color=c("#7D7D7D","darkred"), legend_labels = c("UKBB", "FinnGen"), show_gene_legend = F, protein_coding_only = T, gene_color="#646464")
 ```
