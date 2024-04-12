@@ -8,8 +8,15 @@ library(topr)
 
 ### Single GWAS
 
+To display a region around a given gene:
+
 ```{r, fig.width=9.5, fig.height=5.7}
 regionplot(CD_UKBB, gene="IL23R")
+```
+Or alternatively, use the <code>region</code> argument to display the region:
+
+```{r, fig.width=9.5, fig.height=5.7}
+regionplot(CD_UKBB, region="1:67038907-67359979")
 ```
 
 Label the top marker
