@@ -74,7 +74,7 @@
     "href": "index.html#ggforesttopr",
     "title": "topr plot functions",
     "section": "ggforesttopr",
-    "text": "ggforesttopr\nggforesttopr will be available in the next topr release (v.2.0.1)\n\nggforesttopr(list(CD_UKBB, CD_FINNGEN))"
+    "text": "ggforesttopr\nggforesttopr will be available in the next topr release (v.2.0.2)\n\nggforesttopr(list(CD_UKBB, CD_FINNGEN))"
   },
   {
     "objectID": "index.html#manhattan",

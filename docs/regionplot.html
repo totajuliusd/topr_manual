@@ -215,6 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="single-gwas" class="level3">
 <h3 class="anchored" data-anchor-id="single-gwas">Single GWAS</h3>
+<p>To display a region around a given gene:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(CD_UKBB, <span class="at">gene=</span><span class="st">"IL23R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -228,9 +229,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Label the top marker</p>
+<p>Or alternatively, use the <code>region</code> argument to display the region:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(CD_UKBB, <span class="at">gene=</span><span class="st">"IL23R"</span>, <span class="at">annotate=</span><span class="fl">5e-9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(CD_UKBB, <span class="at">region=</span><span class="st">"1:67038907-67359979"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Zoomed to region:  1:67038907-67359979"</code></pre>
 </div>
@@ -242,9 +243,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Annotate the top marker per 100000 bp region (<code>region_size=100000</code>) and further highlight the marker position with a vertical line. Move the marker id’s slightly up and towards the right (<code>nudge_y=1</code> and <code>nudge_x=25000</code>).</p>
+<p>Label the top marker</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(CD_UKBB, <span class="at">gene=</span><span class="st">"IL23R"</span>, <span class="at">annotate_with_vline =</span> <span class="fl">5e-8</span>, <span class="at">region_size =</span> <span class="dv">100000</span>, <span class="at">nudge_y=</span><span class="dv">1</span>, <span class="at">nudge_x=</span><span class="dv">25000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(CD_UKBB, <span class="at">gene=</span><span class="st">"IL23R"</span>, <span class="at">annotate=</span><span class="fl">5e-9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Zoomed to region:  1:67038907-67359979"</code></pre>
 </div>
@@ -256,14 +257,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="multi-gwas" class="level2">
-<h2 class="anchored" data-anchor-id="multi-gwas">Multi GWAS</h2>
+<p>Annotate the top marker per 100000 bp region (<code>region_size=100000</code>) and further highlight the marker position with a vertical line. Move the marker id’s slightly up and towards the right (<code>nudge_y=1</code> and <code>nudge_x=25000</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">gene=</span><span class="st">"IL23R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(CD_UKBB, <span class="at">gene=</span><span class="st">"IL23R"</span>, <span class="at">annotate_with_vline =</span> <span class="fl">5e-8</span>, <span class="at">region_size =</span> <span class="dv">100000</span>, <span class="at">nudge_y=</span><span class="dv">1</span>, <span class="at">nudge_x=</span><span class="dv">25000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Use the legend_labels argument to change the legend labels from color names to meaningful labels! "
-[1] "Zoomed to region:  1:67038907-67359979"</code></pre>
+<pre><code>[1] "Zoomed to region:  1:67038907-67359979"</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -273,15 +271,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="multi-gwas" class="level2">
+<h2 class="anchored" data-anchor-id="multi-gwas">Multi GWAS</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">gene=</span><span class="st">"IL23R"</span>, <span class="at">annotate_with_vline =</span><span class="fl">5e-08</span>, <span class="at">color=</span><span class="fu">c</span>(<span class="st">"#7D7D7D"</span>,<span class="st">"darkred"</span>), <span class="at">legend_labels =</span> <span class="fu">c</span>(<span class="st">"UKBB"</span>, <span class="st">"FinnGen"</span>), <span class="at">show_gene_legend =</span> F, <span class="at">protein_coding_only =</span> T, <span class="at">gene_color=</span><span class="st">"#646464"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">gene=</span><span class="st">"IL23R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Use the legend_labels argument to change the legend labels from color names to meaningful labels! "
+[1] "Zoomed to region:  1:67038907-67359979"</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regionplot_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="912"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">regionplot</span>(<span class="fu">list</span>(CD_UKBB, CD_FINNGEN), <span class="at">gene=</span><span class="st">"IL23R"</span>, <span class="at">annotate_with_vline =</span><span class="fl">5e-08</span>, <span class="at">color=</span><span class="fu">c</span>(<span class="st">"#7D7D7D"</span>,<span class="st">"darkred"</span>), <span class="at">legend_labels =</span> <span class="fu">c</span>(<span class="st">"UKBB"</span>, <span class="st">"FinnGen"</span>), <span class="at">show_gene_legend =</span> F, <span class="at">protein_coding_only =</span> T, <span class="at">gene_color=</span><span class="st">"#646464"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Zoomed to region:  1:67038907-67359979"</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="regionplot_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="912"></p>
+<p><img src="regionplot_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="912"></p>
 </figure>
 </div>
 </div>

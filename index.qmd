@@ -73,7 +73,7 @@ p1$layers[[1]]$aes_params$odd <- "#00000010" %>% suppressWarnings() %>% suppress
 
 ```
 
-**ggforesttopr** will be available in the next *topr* release (v.2.0.1)
+**ggforesttopr** will be available in the next *topr* release (v.2.0.2)
 
 ```{r, eval=F}
 ggforesttopr(list(CD_UKBB, CD_FINNGEN))
